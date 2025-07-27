@@ -1,0 +1,23 @@
+javascript:(function(){
+  const btn = document.createElement("button");
+  btn.textContent = "View My Analytics";
+  btn.style.backgroundColor = "#9966ff";
+  btn.style.color = "white";
+  btn.style.border = "none";
+  btn.style.borderRadius = "4px";
+  btn.style.padding = "6px 12px";
+  btn.style.marginLeft = "10px";
+  btn.style.cursor = "pointer";
+  btn.onclick = () => {
+    const pathname = window.location.pathname;
+    window.location.href = 'https://scratchviews.com' + pathname.slice(0, -1);
+  };
+
+  const container = document.querySelector('.flex-row.action-buttons');
+  if (container && !document.querySelector('#analytics-button')) {
+    btn.id = "analytics-button";
+    container.appendChild(btn);
+  } else {
+    alert("Couldn't find the action buttons section!");
+  }
+})();
